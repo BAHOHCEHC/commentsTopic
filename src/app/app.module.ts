@@ -8,18 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CommentsComponent } from './comments/comments.component';
 import { CommensEffect } from './redux/comments.effect';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreModule, ActionReducer, MetaReducer } from '@ngrx/store';
+// import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { commentsReducer } from './redux/comments.reducer';
-export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
-  return function(state, action) {
-    // console.log('state', state);
-    // console.log('action', action);
-    return reducer(state, action);
-  };
-}
-export const metaReducers: MetaReducer<any>[] = [debug];
 
 @NgModule({
   declarations: [AppComponent, CommentsComponent],
@@ -28,11 +19,9 @@ export const metaReducers: MetaReducer<any>[] = [debug];
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([CommensEffect]),
-    StoreModule.forRoot({ commentsPage: commentsReducer }, { metaReducers }),
+    // EffectsModule.forRoot([CommensEffect]),
+    StoreModule.forRoot({ commentsPage: commentsReducer }),
     RouterModule.forRoot([{ path: '', component: AppComponent }]),
-    StoreRouterConnectingModule.forRoot()
-    // environment.production ? [] : StoreDevtoolsModule.instrument() //активация расширения
   ],
   providers: [],
   bootstrap: [AppComponent]

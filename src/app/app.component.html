@@ -1,7 +1,7 @@
 <div class="wrap pt-3" *ngIf="commentState$ | async as commentState; else loader">
   <div class="container">
     <div class="row">
-      <input type="text" class="form-control col-md-10" (input)="folow()" [(ngModel)]="searchField" placeholder="Search" />
+      <input type="text" class="form-control col-md-10" (input)="folow()" [(ngModel)]="searchField" placeholder="Write the phrase or words" />
       <button type="button" class="col mt-sm-2 ml-sm-0 mt-md-0 btn btn-primary ml-md-2 float-right addBtn"  (click)="searchComment()">Search</button>
     </div>
   </div>
