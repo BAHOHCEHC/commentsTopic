@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CommentsComponent } from './comments/comments.component';
-import { CommensEffect } from './redux/comments.effect';
+// import { CommensEffect } from './redux/comments.effect';
 // import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { commentsReducer } from './redux/comments.reducer';
