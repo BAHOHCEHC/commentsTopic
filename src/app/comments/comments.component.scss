@@ -1,0 +1,37 @@
+.row {
+  border-radius: 5px;
+}
+.removeBtn {
+  position: absolute;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  border: none;
+  display: flex;
+  color: #fff;
+  top: -9px;
+  span {
+    position: absolute;
+    top: -4px;
+  }
+}
+.leftLine {
+  border-left: 2px solid #cecece;
+}
+
+.addBtn {
+  min-width: 90px;
+}
+.innerWrap {
+  float: left;
+}
+.grey {
+  background-color: #f3f0f0;
+  border-radius: 5px;
+  padding: 3px 0px 3px 5px;
+}
+.cont {
+  position: relative;
+}

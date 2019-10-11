@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.even {
+  .row {
+    background-color: #e2e1e2;
+  }
+}
+
+.odd {
+  .row {
+    background-color: #fcf6fc;
+  }
+}

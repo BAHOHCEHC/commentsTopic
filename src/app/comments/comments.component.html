@@ -1,0 +1,44 @@
+<div class="container mt-4 ">
+  <div class="row pb-4 pl-3">
+    <div class="mt-4 col-md-12 pr-3 leftLine">
+      <div class="mb-5 col-md-12  pr-0">
+        <button class="removeBtn" (click)="remove(comment)"><span>x</span></button>
+        <h3>Theme: {{ themeTitle }}</h3>
+        <p [@fade] class="grey">{{ comment.body }}</p>
+        <textarea [(ngModel)]="text" class="form-control rounded-20 " id="exampleFormControlTextarea1" rows="3"></textarea>
+        <button type="button" class="btn btn-primary float-right mt-2 addBtn" (click)="addComment(comment, comment.id, text)">Add comment</button>
+      </div>
+
+      <div class="innerWrap pl-3 mt-4 leftLine col-md-12  pr-0" *ngIf="comment['subComment'].comments.length">
+        <div class="cont" *ngFor="let subComment of comment['subComment'].comments">
+          <button class="removeBtn" (click)="removeSubComment(comment, subComment.id)"><span>x</span></button>
+          <p [@fade] class="grey">{{ subComment.body }}</p>
+        </div>
+
+        <textarea [(ngModel)]="subText" class="form-control rounded-20 " id="exampleFormControlTextarea1" rows="3"></textarea>
+        <button type="button" class="btn btn-primary float-right mt-2 addBtn" (click)="addSubComment(comment, comment.id, subText)">Add comment</button>
+        <div *ngIf="comment['subComment'].subComment.comments">
+          <div class="innerWrap pl-3 pr-0 pt-4 leftLine col-md-12 pr-0" *ngIf="comment['subComment'].subComment.comments.length">
+            <div class="cont" *ngFor="let subSubComment of comment['subComment'].subComment.comments">
+              <button class="removeBtn" (click)="removeSubComment(comment, subSubComment.id)"><span>x</span></button>
+              <p [@fade] class="grey">{{ subSubComment.body }}</p>
+            </div>
+
+            <textarea [(ngModel)]="subSubText" class="form-control rounded-20 " id="exampleFormControlTextarea1" rows="3"></textarea>
+            <button type="button" class="btn btn-primary float-right mt-2 addBtn" (click)="addSubSubComment(comment, comment.id, subSubText)">
+              Add comment
+            </button>
+            <div *ngIf="comment['subComment'].subComment.subComment.comments">
+              <div class="innerWrap pl-3 pr-0 pt-4 leftLine col-md-12 pr-0" *ngIf="comment['subComment'].subComment.subComment.comments.length">
+                <div class="cont" *ngFor="let subSubSubComment of comment.subComment['subComment'].subComment.comments">
+                  <button class="removeBtn" (click)="removeSubComment(comment, subSubSubComment.id)"><span>x</span></button>
+                  <p [@fade] class="grey">{{ subSubSubComment.body }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
