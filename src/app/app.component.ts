@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { AppState } from './redux/app.state';
 import { CommentService } from './comments.service';
-import { map } from 'rxjs/operators';
 import { Comment } from './models/comment.model';
 
 @Component({
@@ -57,16 +56,11 @@ export class AppComponent implements OnInit, OnDestroy {
       this.init();
       return;
     }
-    this.commentState$ = this.store.select('commentsPage').pipe(
-      map(arr =>
-        arr.comments.filter(comment => {
-          return !(comment['body'].toLowerCase().indexOf(this.searchField.toLowerCase()) !== -1) ? false : true;
-        })
-      )
-    );
-
+    this.commentState$ = this.store.select('commentsPage');
     this.asub$ = this.commentState$.subscribe(res => {
-      this.comments['comments'] = res;
+      this.comments.comments = res.comments.filter(comment => {
+        return !(comment['body'].toLowerCase().indexOf(this.searchField.toLowerCase()) !== -1) ? false : true;
+      });
     });
   }
 }
