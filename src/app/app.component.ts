@@ -58,8 +58,8 @@ export class AppComponent implements OnInit, OnDestroy {
       return;
     }
     this.commentState$ = this.store.select('commentsPage').pipe(
-      map((arr) =>
-        arr['comments'].filter(comment => {
+      map(arr =>
+        arr.comments.filter(comment => {
           return !(comment['body'].toLowerCase().indexOf(this.searchField.toLowerCase()) !== -1) ? false : true;
         })
       )
