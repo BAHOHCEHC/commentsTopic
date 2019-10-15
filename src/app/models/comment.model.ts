@@ -3,16 +3,13 @@ export class Comment {
     public body: string,
     public id?: string,
     public subComment: {} = {
-      comments: [],
+      comments: [] = [],
       subComment: {}
     }
   ) {}
 }
 export class SubComment {
-  constructor(
-    public body: string,
-    public id?: string,
-  ) {}
+  constructor(public body: string, public id?: string) {}
 }
 
 export interface Comments {
