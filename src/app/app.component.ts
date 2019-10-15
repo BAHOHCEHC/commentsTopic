@@ -3,8 +3,8 @@ import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { AppState } from './redux/app.state';
 import { CommentService } from './comments.service';
-import { tap, filter, map, find, takeUntil } from 'rxjs/operators';
-import { Comment, Comments } from './models/comment.model';
+import { map } from 'rxjs/operators';
+import { Comment } from './models/comment.model';
 
 @Component({
   selector: 'app-root',
